@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About
+Hi, my name is Sungha Kim.

@@ -4,7 +4,21 @@
   <url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>
+    <loc>http://localhost:1313/study/ai-systems/</loc>
+  </url><url>
+    <loc>http://localhost:1313/study/cpp/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/research/clustering-approach-in-hfl/</loc>
+  </url><url>
+    <loc>http://localhost:1313/study/dev-tools/</loc>
+  </url><url>
+    <loc>http://localhost:1313/projects/efficient-cpp-server/</loc>
+  </url><url>
+    <loc>http://localhost:1313/study/linux/</loc>
+  </url><url>
+    <loc>http://localhost:1313/study/network/</loc>
   </url><url>
     <loc>http://localhost:1313/projects/</loc>
   </url><url>

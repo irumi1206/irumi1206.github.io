@@ -2,4 +2,3 @@
 title: "Study"
 ---
 
-Study
