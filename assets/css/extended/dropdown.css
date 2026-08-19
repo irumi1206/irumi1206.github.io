@@ -1,25 +1,29 @@
-/* Parent menu item */
-#menu > li {
+/* PaperMod menu must not clip dropdowns */
+#menu {
+    overflow: visible;
+}
+
+/* Every menu item can own another submenu */
+#menu li {
     position: relative;
 }
 
-/* Small arrow */
+/* Arrow */
 .dropdown-caret {
-    margin-left: 4px;
+    margin-left: 5px;
     font-size: 0.75em;
 }
 
-/* Dropdown */
+/* Common submenu */
 #menu .submenu {
     display: none;
     position: absolute;
 
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    min-width: 180px;
+    min-width: 190px;
     padding: 6px;
+    margin: 0;
+
+    list-style: none;
 
     background: var(--theme);
     border: 1px solid var(--border);
@@ -27,10 +31,25 @@
 
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 
+    line-height: 1.4;
     z-index: 1000;
 }
 
-/* Show on hover / keyboard focus */
+/* First-level dropdown opens downward */
+#menu > li > .submenu {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Deeper dropdowns open to the right */
+#menu .submenu .submenu {
+    top: 0;
+    left: 100%;
+    transform: none;
+}
+
+/* Show submenu */
 #menu li:hover > .submenu,
 #menu li:focus-within > .submenu {
     display: block;
@@ -49,19 +68,15 @@
     border-radius: 6px;
 }
 
-/* Hover effect */
+/* Nested item text + arrow */
+#menu .submenu a span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Hover */
 #menu .submenu a:hover {
     background: var(--code-bg);
-}
-
-/* PaperMod's default menu uses overflow-x: auto,
-   which can clip dropdown menus. */
-#menu {
-    overflow: visible;
-}
-
-#menu .submenu {
-    list-style: none;
-    margin: 0;
-    line-height: 1.4;
 }

@@ -1,4 +1,4 @@
 ---
-title: "wireless communication"
+title: "Wireless Communication"
 hideSummary: true
 ---
