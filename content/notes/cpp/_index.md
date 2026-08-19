@@ -3,4 +3,4 @@ title: "C++"
 hideSummary: true
 ---
 
-[Study](/study/) >> C++
+[Notes](/notes/) >> C++

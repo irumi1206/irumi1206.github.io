@@ -1,0 +1,55 @@
+/* Parent menu item */
+#menu > li {
+    position: relative;
+}
+
+/* Small arrow */
+.dropdown-caret {
+    margin-left: 4px;
+    font-size: 0.75em;
+}
+
+/* Dropdown */
+#menu .submenu {
+    display: none;
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    min-width: 180px;
+    padding: 6px;
+
+    background: var(--theme);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    z-index: 1000;
+}
+
+/* Show on hover / keyboard focus */
+#menu li:hover > .submenu,
+#menu li:focus-within > .submenu {
+    display: block;
+}
+
+/* Child rows */
+#menu .submenu li {
+    display: block;
+    white-space: nowrap;
+}
+
+/* Child links */
+#menu .submenu a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+/* Hover effect */
+#menu .submenu a:hover {
+    background: var(--code-bg);
+}

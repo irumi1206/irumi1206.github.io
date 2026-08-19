@@ -3,4 +3,4 @@ title: "Development Tools"
 hideSummary: true
 ---
 
-[Study](/study/) >> Development Tools
+[Notes](/notes/) >> Development Tools

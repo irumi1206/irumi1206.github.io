@@ -1,27 +1,65 @@
-
-baseURL = 'https://irumi1206.github.io/'
-languageCode = 'en-us'
-title = 'Sungha Kim'
-theme = 'PaperMod'
-
-disableKinds = ['home']
-
-[params]
-defaultTheme = 'light'
-disableThemeToggle = true
-ShowBreadCrumbs = false
-
 [[menu.main]]
+identifier = 'about'
 name = 'About'
 url = '/about/'
 weight = 10
 
 [[menu.main]]
+identifier = 'projects'
 name = 'Projects'
 url = '/projects/'
 weight = 20
 
 [[menu.main]]
-name = 'Study'
-url = '/study/'
+identifier = 'research'
+name = 'Research'
+url = '/research/'
 weight = 30
+
+[[menu.main]]
+identifier = 'notes'
+name = 'Notes'
+url = '/notes/'
+weight = 40
+
+
+# Research children
+
+[[menu.main]]
+name = 'Clustering Approach in HFL'
+url = '/research/clustering-approach-in-hfl/'
+parent = 'research'
+weight = 10
+
+
+# Notes children
+
+[[menu.main]]
+name = 'Linux'
+url = '/notes/linux/'
+parent = 'notes'
+weight = 10
+
+[[menu.main]]
+name = 'C++'
+url = '/notes/cpp/'
+parent = 'notes'
+weight = 20
+
+[[menu.main]]
+name = 'Network'
+url = '/notes/network/'
+parent = 'notes'
+weight = 30
+
+[[menu.main]]
+name = 'AI Systems'
+url = '/notes/ai-systems/'
+parent = 'notes'
+weight = 40
+
+[[menu.main]]
+name = 'Development Tools'
+url = '/notes/dev-tools/'
+parent = 'notes'
+weight = 50
