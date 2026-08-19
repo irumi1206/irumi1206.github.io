@@ -53,3 +53,15 @@
 #menu .submenu a:hover {
     background: var(--code-bg);
 }
+
+/* PaperMod's default menu uses overflow-x: auto,
+   which can clip dropdown menus. */
+#menu {
+    overflow: visible;
+}
+
+#menu .submenu {
+    list-style: none;
+    margin: 0;
+    line-height: 1.4;
+}

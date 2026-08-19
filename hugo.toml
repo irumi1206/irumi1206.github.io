@@ -1,3 +1,15 @@
+baseURL = 'https://irumi1206.github.io/'
+languageCode = 'en-us'
+title = 'Sungha Kim'
+theme = 'PaperMod'
+
+disableKinds = ['home']
+
+[params]
+defaultTheme = 'light'
+disableThemeToggle = true
+ShowBreadCrumbs = false
+
 [[menu.main]]
 identifier = 'about'
 name = 'About'
@@ -11,24 +23,18 @@ url = '/projects/'
 weight = 20
 
 [[menu.main]]
-identifier = 'research'
-name = 'Research'
-url = '/research/'
-weight = 30
-
-[[menu.main]]
 identifier = 'notes'
 name = 'Notes'
 url = '/notes/'
-weight = 40
+weight = 30
 
 
-# Research children
+# Projects children
 
 [[menu.main]]
-name = 'Clustering Approach in HFL'
-url = '/research/clustering-approach-in-hfl/'
-parent = 'research'
+name = 'High Performance C++ Proxy Server'
+url = '/projects/High Performance C++ Proxy Server/'
+parent = 'projects'
 weight = 10
 
 

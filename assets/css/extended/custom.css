@@ -1,4 +1,4 @@
-.md-content > p:first-child a[href^="/study/"],
+.md-content > p:first-child a[href^="/notes/"],
 .md-content > p:first-child a[href^="/projects/"],
 .md-content > p:first-child a[href^="/research/"] {
     text-decoration: none;
