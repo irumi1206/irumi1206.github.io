@@ -8,64 +8,23 @@ disableKinds = ['home']
 [params]
 defaultTheme = 'light'
 disableThemeToggle = true
-ShowBreadCrumbs = false
+ShowBreadCrumbs = true
+
 
 [[menu.main]]
 identifier = 'about'
 name = 'About'
-url = '/about/'
+pageRef = '/about'
 weight = 10
 
 [[menu.main]]
 identifier = 'projects'
 name = 'Projects'
-url = '/projects/'
+pageRef = '/projects'
 weight = 20
 
 [[menu.main]]
 identifier = 'notes'
 name = 'Notes'
-url = '/notes/'
+pageRef = '/notes'
 weight = 30
-
-
-# Projects children
-
-[[menu.main]]
-name = 'High Performance C++ Proxy Server'
-url = '/projects/High Performance C++ Proxy Server/'
-parent = 'projects'
-weight = 10
-
-
-# Notes children
-
-[[menu.main]]
-name = 'Linux'
-url = '/notes/linux/'
-parent = 'notes'
-weight = 10
-
-[[menu.main]]
-name = 'C++'
-url = '/notes/cpp/'
-parent = 'notes'
-weight = 20
-
-[[menu.main]]
-name = 'Network'
-url = '/notes/network/'
-parent = 'notes'
-weight = 30
-
-[[menu.main]]
-name = 'AI Systems'
-url = '/notes/ai-systems/'
-parent = 'notes'
-weight = 40
-
-[[menu.main]]
-name = 'Development Tools'
-url = '/notes/dev-tools/'
-parent = 'notes'
-weight = 50

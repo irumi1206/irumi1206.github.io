@@ -1,0 +1,27 @@
+{{- if (.Param "ShowBreadCrumbs") -}}
+
+{{- if and .Parent (not .Parent.IsHome) }}
+
+<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+
+    {{- range $ancestor := .Ancestors.Reverse }}
+
+        {{- if not $ancestor.IsHome }}
+
+            <a href="{{ $ancestor.RelPermalink }}">
+                {{ $ancestor.LinkTitle }}
+            </a>
+
+            <span class="breadcrumb-separator">&gt;&gt;</span>
+
+        {{- end }}
+
+    {{- end }}
+
+    <span>{{ .LinkTitle }}</span>
+
+</nav>
+
+{{- end }}
+
+{{- end -}}

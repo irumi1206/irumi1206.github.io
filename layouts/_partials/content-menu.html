@@ -1,0 +1,32 @@
+{{- $children := union .Sections .RegularPages }}
+
+{{- if gt (len $children) 0 }}
+<ul class="submenu">
+
+    {{- range sort $children "Weight" "asc" }}
+
+        {{- $childrenOfChild := union .Sections .RegularPages }}
+        {{- $hasChildren := gt (len $childrenOfChild) 0 }}
+
+        <li class="{{ if $hasChildren }}menu-item-has-children{{ end }}">
+
+            <a href="{{ .RelPermalink }}">
+                <span>
+                    {{ .LinkTitle }}
+
+                    {{- if $hasChildren }}
+                    <span class="dropdown-caret">▸</span>
+                    {{- end }}
+                </span>
+            </a>
+
+            {{- if $hasChildren }}
+                {{ partial "content-menu.html" . }}
+            {{- end }}
+
+        </li>
+
+    {{- end }}
+
+</ul>
+{{- end }}

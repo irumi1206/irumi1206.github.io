@@ -84,36 +84,38 @@
             </div>
             {{- end }}
         </div>
-        {{- $currentPage := . }}
         <ul id="menu" class="menu">
-    {{- $currentPage := . }}
 
     {{- range site.Menus.main }}
-    <li class="{{ if .HasChildren }}menu-item-has-children{{ end }}">
 
-        <a href="{{ .URL | absLangURL }}">
-            <span>
-                {{- .Name -}}
-                {{- if .HasChildren }}
-                <span class="dropdown-caret">▾</span>
-                {{- end }}
-            </span>
-        </a>
+        {{- $page := .Page }}
+        {{- $hasChildren := false }}
 
-        {{- if .HasChildren }}
-        <ul class="submenu">
-            {{- range .Children }}
-            <li>
-                <a href="{{ .URL | absLangURL }}">
-                    {{ .Name }}
-                </a>
-            </li>
-            {{- end }}
-        </ul>
+        {{- with $page }}
+            {{- $children := union .Sections .RegularPages }}
+            {{- $hasChildren = gt (len $children) 0 }}
         {{- end }}
 
-    </li>
+        <li class="{{ if $hasChildren }}menu-item-has-children{{ end }}">
+
+            <a href="{{ .URL | absLangURL }}">
+                <span>
+                    {{ .Name }}
+
+                    {{- if $hasChildren }}
+                    <span class="dropdown-caret">▾</span>
+                    {{- end }}
+                </span>
+            </a>
+
+            {{- with $page }}
+                {{ partial "content-menu.html" . }}
+            {{- end }}
+
+        </li>
+
     {{- end }}
+
 </ul>
     </nav>
 </header>
