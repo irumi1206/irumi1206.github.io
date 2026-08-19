@@ -1,5 +1,6 @@
 ---
 title: "Linux"
+hideSummary: true
 ---
 
-[← Study](/study/)
+[Study](/study/) >> Linux

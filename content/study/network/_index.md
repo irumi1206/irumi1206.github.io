@@ -1,5 +1,6 @@
 ---
 title: "Network"
+hideSummary: true
 ---
 
-[← Study](/study/)
+[Study](/study/) >> Network

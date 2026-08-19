@@ -1,5 +1,6 @@
 ---
 title: "Efficient C++ Server"
+hideSummary: true
 ---
 
-[← Projects](/projects/)
+[Projects](/projects/) >> Efficient C++ Server

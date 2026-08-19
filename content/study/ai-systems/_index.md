@@ -1,5 +1,6 @@
 ---
 title: "AI Systems"
+hideSummary: true
 ---
 
-[← Study](/study/)
+[Study](/study/) >> AI Systems

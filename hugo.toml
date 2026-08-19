@@ -1,7 +1,10 @@
+
 baseURL = 'https://irumi1206.github.io/'
 languageCode = 'en-us'
 title = 'Sungha Kim'
 theme = 'PaperMod'
+
+disableKinds = ['home']
 
 [params]
 defaultTheme = 'light'
@@ -19,11 +22,6 @@ url = '/projects/'
 weight = 20
 
 [[menu.main]]
-name = 'Research'
-url = '/research/'
-weight = 30
-
-[[menu.main]]
 name = 'Study'
 url = '/study/'
-weight = 40
+weight = 30

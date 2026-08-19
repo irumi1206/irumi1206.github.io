@@ -1,5 +1,6 @@
 ---
 title: "Development Tools"
+hideSummary: true
 ---
 
-[← Study](/study/)
+[Study](/study/) >> Development Tools
