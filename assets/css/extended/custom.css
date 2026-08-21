@@ -1,0 +1,47 @@
+:root {
+    --main-width: 800px;
+    --code-block-bg: #eceeef;
+    --code-bg: #e9eaec;
+}
+
+.post-content {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.md-content .highlight:not(table) {
+    background: #eceeef !important;
+    border: 1px solid #d5d7da;
+    border-radius: 8px;
+}
+
+.md-content pre code {
+    background: #eceeef !important;
+    color: #2f3437;
+
+    font-family:
+        "Cascadia Code",
+        "Cascadia Mono",
+        "JetBrains Mono",
+        Consolas,
+        monospace;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    padding: 16px 18px;
+    border-radius: 8px;
+}
+
+/* inline code */
+.post-content code {
+    font-family:
+        "Cascadia Code",
+        "Cascadia Mono",
+        "JetBrains Mono",
+        Consolas,
+        monospace;
+
+    background: #e9eaec;
+    color: #2f3437;
+}
