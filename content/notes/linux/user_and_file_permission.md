@@ -9,7 +9,7 @@ Linux에서는 여러 user가 하나의 system을 사용할 수 있으며, kerne
 
 Linux의 file과 directory에는 각각 owner user 하나와 group owner 하나가 지정되어 있으며, permission은 `owner / group / others` 세 범주에 대해 정의된다. 여기서 owner는 해당 file이나 directory의 소유 user, group은 해당 object에 지정된 하나의 group owner, others는 그 외의 user를 의미한다. 접근하는 user가 owner라면 owner permission이 적용되고, owner는 아니지만 그 user가 속한 primary 또는 supplementary group 중 하나가 file의 group owner와 일치하면 group permission이 적용된다. 둘 다 해당하지 않으면 others permission이 적용된다.
 
-각 범주에는 `r`, `w`, `x` permission이 존재하며 `r`은 read, `w`는 write, `x`는 execute를 의미하고 숫자로는 각각 4, 2, 1로 표현할 수 있다. 따라서 `644`는 `rw-r--r--`, `755`는 `rwxr-xr-x`를 의미하며 `chmod`를 통해 permission을 변경할 수 있다. File과 directory에서는 `rwx`의 의미가 조금 다르다. 일반 file에서 `r`은 내용을 읽는 권한, `w`는 내용을 수정하는 권한, `x`는 executable로 실행할 수 있는 권한을 의미한다. Directory에서 `r`은 directory 안의 entry 이름을 조회하는 권한, `w`는 내부에 file이나 directory를 생성·삭제·rename할 수 있는 권한, `x`는 해당 directory를 통과하여 내부 path에 접근할 수 있는 권한을 의미한다.
+각 범주에는 `r`, `w`, `x` permission이 존재하며 `r`은 read, `w`는 write, `x`는 execute를 의미하고 숫자로는 각각 4, 2, 1로 표현할 수 있다. 따라서 `644`는 `rw-r--r--`, `755`는 `rwxr-xr-x`를 의미하며 `chmod`를 통해 permission을 변경할 수 있다. File과 directory에서는 `rwx`의 의미가 조금 다르다. 일반 file에서 `r`은 내용을 읽는 권한, `w`는 내용을 수정하는 권한, `x`는 executable로 실행할 수 있는 권한을 의미한다. Directory에서 `r`은 directory 안의 entry 이름을 조회하는 권한, `w`는 내부에 file이나 directory를 생성·삭제·rename할 수 있는 권한, `x`는 해당 directory를 통과하여 내부 path에 접근할 수 있는 권한을 의미한다. 추가로 Directory에서 entry를 생성·삭제·rename하려면 일반적으로 w와 함께 x permission도 필요하다.
 
 다음 command들을 통해 현재 user와 group, file 및 directory permission을 직접 확인해보면
 

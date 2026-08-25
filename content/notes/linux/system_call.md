@@ -13,7 +13,7 @@ Process의 thread는 일반적인 application code를 User Mode에서 실행하�
 
 ### Privileged Port
 
-Network socket 역시 file descriptor를 통해 관리되며, server는 `socket()`으로 socket을 생성한 뒤 `bind()`를 통해 특정 address와 port에 연결할 수 있다. Linux에서는 낮은 범위의 port를 privileged port로 두고 일반 process가 임의로 bind하지 못하도록 제한할 수 있다. 전통적으로 1024보다 작은 port가 privileged port로 사용되어 왔지만, 실제 Linux에서는 `net.ipv4.ip_unprivileged_port_start` 값이 일반 user가 사용할 수 있는 첫 번째 port를 결정한다. 이 값보다 낮은 port에 bind하려면 일반적으로 root 권한이나 `CAP_NET_BIND_SERVICE` capability가 필요하다. 따라서 privileged port는 단순히 특정 process가 사용하기 때문에 막아둔 port라기보다, 낮은 port를 privileged service 영역으로 두고 일반 process의 bind를 제한하는 mechanism으로 보는 것이 더 정확하다.
+Network socket 역시 file descriptor를 통해 관리되며, server는 `socket()`으로 socket을 생성한 뒤 `bind()`를 통해 특정 address와 port에 연결할 수 있다. Linux에서는 낮은 범위의 port를 privileged port로 두고 일반 process가 임의로 bind하지 못하도록 제한할 수 있다. 전통적으로 1024보다 작은 port가 privileged port로 사용되어 왔지만, 실제 Linux에서는 `net.ipv4.ip_unprivileged_port_start` 값이 일반 user가 사용할 수 있는 첫 번째 port를 결정한다. 이 값보다 낮은 port에 bind하려면 일반적으로 root 권한이나 `CAP_NET_BIND_SERVICE` capability가 필요하다. 따라서 privileged port는 단순히 특정 process가 사용하기 때문에 막아둔 port라기보다, 낮은 port를 privileged service 영역으로 두고 일반 process의 bind를 제한하는 mechanism으로 보는 것이 더 정확하다. 이러한 구분은 낮은 port를 사용하려면 system의 privilege가 필요하다는 전통적인 신뢰 모델에서 시작한다. 다만 오늘날에는 낮은 port를 사용한다는 사실만으로 해당 service를 신뢰할 수 있는 것은 아니며, Linux에서는 여전히 하나의 privilege boundary로 유지된다.
 
 현재 system에서 privileged port의 boundary를 확인해보면
 
