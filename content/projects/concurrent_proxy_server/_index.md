@@ -5,7 +5,7 @@ hideSummary: true
 
 ### Overview
 
-이 프로젝트의 출발점은 과거 C++로 게임 서버를 구현했던 경험이다. 당시 프로젝트인 [SOKC](https://github.com/irumi1206/SOKC)는 하나의 방에 접속한 여러 사용자가 서로 통신하는 구조를 가지고 있었고, TCP 연결마다 별도의 thread를 생성하여 각 client의 요청을 수신했다. 수신된 요청은 하나의 processing queue에 넣은 뒤 별도의 thread에서 순차적으로 처리하도록 하여, 여러 thread가 동시에 게임 로직을 수정하면서 발생할 수 있는 동시성 문제를 피하고자 했다. UDP는 위치처럼 자주 갱신되는 정보를 처리하기 위해 TCP와 분리하고, 별도의 receive/send thread를 통해 정보를 주고받도록 구성했다. 이 구조는 당시의 비교적 작은 규모에서는 충분히 동작했지만, 서버의 동시성과 성능을 체계적으로 다뤘다고 보기는 어려웠다. 연결 수가 늘어날수록 thread 수와 context switch가 어떻게 변하는지, 하나의 queue가 어느 시점부터 병목이 되는지, 많은 connection과 request가 들어왔을 때 throughput과 latency가 어떻게 달라지는지 등을 실제로 측정해보지는 않았다. 이번 프로젝트에서는 이 부분을 처음부터 다시 확인해보고자 한다. 처음에는 간단히 c++로 echo server를 만들어 multiple user connection, traffic condition에 대응할수 있도록 한다. 다음으로는 이를 reverse proxy로 확장해보고자 한다.
+이 프로젝트의 출발점은 과거 C++로 게임 서버를 구현했던 경험이다. 당시 프로젝트인 [SOKC](https://github.com/irumi1206/SOKC)는 하나의 방에 접속한 여러 사용자가 서로 통신하는 구조를 가지고 있었고, TCP 연결마다 별도의 thread를 생성하여 각 client의 요청을 수신했다. 수신된 요청은 하나의 processing queue에 넣은 뒤 별도의 thread에서 순차적으로 처리하도록 하여, 여러 thread가 동시에 게임 로직을 수정하면서 발생할 수 있는 동시성 문제를 피하고자 했다. UDP는 위치처럼 자주 갱신되는 정보를 처리하기 위해 TCP와 분리하고, 별도의 receive/send thread를 통해 정보를 주고받도록 구성했다. 이 구조는 당시의 비교적 작은 규모에서는 충분히 동작했지만, 서버의 동시성과 성능을 체계적으로 다뤘다고 보기는 어려웠다. 연결 수가 늘어날수록 thread 수와 context switch가 어떻게 변하는지, 하나의 queue가 어느 시점부터 병목이 되는지, 많은 connection과 request가 들어왔을 때 throughput과 latency가 어떻게 달라지는지 등을 실제로 측정해보지는 않았다. 이번 프로젝트에서는 이 부분을 처음부터 다시 확인해보고자 한다. 처음에는 간단한 C++ Echo Server를 구현하고, 많은 동시 connection과 traffic이 발생할 때 서버 구조에 따라 어떤 차이가 생기는지 확인한다. 이후 이를 Reverse Proxy로 확장하고자 한다.
 
 ### Echo server 
 
@@ -32,4 +32,4 @@ epoll 기반 서버까지 구현한 이후에는 단순한 echo server에서 끝
 - Context switch
 - Success / Failure
 
-최종적으로는 동일한 Load Generator와 Backend Simulator를 사용하여 직접 구현한 Reverse Proxy와 Nginx Reverse Proxy를 같은 조건에서 성능 차이를 가능한 범위에서 개선해보고자 한다.
+최종적으로는 동일한 Load Generator와 Backend Simulator를 사용하여 직접 구현한 Reverse Proxy와 Nginx Reverse Proxy를 같은 조건에서 비교하고, 성능 차이가 발생하는 원인을 확인한 뒤 가능한 범위에서 직접 구현한 서버의 성능을 개선해보고자 한다.
