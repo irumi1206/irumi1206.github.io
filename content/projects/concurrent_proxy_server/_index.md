@@ -10,6 +10,7 @@ hideSummary: true
 ### Echo server 
 
 먼저 네트워크 connection 처리 자체에 집중하기 위해 가장 단순한 Blocking TCP Echo Server에서 시작한다. 이후 Thread-per-Connection, Thread Pool, epoll 기반 Event-driven 구조로 하나씩 변경하면서 각 방식이 많은 connection을 처리할 때 어떤 차이를 가지는지 확인한다.
+
 | Structure | 해결하려는 문제 | 새로 확인할 문제 |
 | --- | --- | --- |
 | Blocking | 가장 단순한 기준 구조 | 한 connection을 처리하는 동안 다른 connection을 처리하지 못함 |
